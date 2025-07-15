@@ -145,6 +145,13 @@ section {
     font-weight: 600;
 }
 
+.header .logo img {
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    border-radius: 50%; /* Creates the round shape */
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+}
+
 .navbar {
     z-index: 101;
 }
@@ -174,7 +181,7 @@ section {
     align-items: center;
     padding: 0 9%;
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), var(--bg-color) url('images/SumitsainiProfile2.jpg') no-repeat center center;
-    background-size: contain;
+    background-size: cover; /* Changed to cover for better filling */
     background-attachment: fixed;
 }
 
@@ -480,7 +487,7 @@ section {
 
 .about-text p {
     font-size: 1.6rem;
-    margin-bottom: 2rem;
+    margin: 2rem 0 4rem;
 }
 
 .education {
@@ -1217,6 +1224,11 @@ section {
         display: block;
     }
 
+    .header .logo img {
+        width: 35px; /* Adjust size for mobile if needed */
+        height: 35px;
+    }
+
     .navbar {
         position: absolute;
         top: 100%;
@@ -1277,7 +1289,7 @@ section {
     .home {
         background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), var(--bg-color) url('images/home-bg.jpg') no-repeat center center;
         background-size: cover;
-        background-attachment: fixed;
+        background-attachment: scroll; /* Changed to scroll for mobile compatibility */
     }
 }
 
