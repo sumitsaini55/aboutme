@@ -53,6 +53,7 @@ body {
     background: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden; /* Added to help prevent horizontal scroll */
 }
 
 section {
@@ -181,7 +182,7 @@ section {
     align-items: center;
     padding: 0 9%;
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), var(--bg-color) url('images/SumitsainiProfile2.jpg') no-repeat center center;
-    background-size: cover; /* Changed to cover for better filling */
+    background-size: cover;
     background-attachment: fixed;
 }
 
@@ -1258,6 +1259,10 @@ section {
         font-size: 5rem;
     }
 
+    .home-content {
+        max-width: 100%; /* Added for mobile responsiveness */
+    }
+
     .home-sci {
         width: 160px;
     }
@@ -1289,7 +1294,7 @@ section {
     .home {
         background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), var(--bg-color) url('images/home-bg.jpg') no-repeat center center;
         background-size: cover;
-        background-attachment: scroll; /* Changed to scroll for mobile compatibility */
+        background-attachment: scroll;
     }
 }
 
@@ -1309,6 +1314,14 @@ section {
     }
 
     .btn-box .btn {
+        width: 100%;
+    }
+
+    .contact form .input-box .input-field { /* This rule should be grouped with others for consistency */
+        width: 100%;
+    }
+
+    .contact form textarea { /* This rule should be grouped with others for consistency */
         width: 100%;
     }
 
