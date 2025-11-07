@@ -182,3 +182,21 @@ function toggleScrollToTopButton() {
 }
 
 window.addEventListener('load', toggleScrollToTopButton);
+
+
+document.getElementById("resumeBtn").addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const pdfURL = "SumitSaini-Resume-GeneralProfessional-.pdf";
+
+       
+        window.open(pdfURL, "_blank");
+
+        const link = document.createElement("a");
+        link.href = pdfURL;
+        link.download = "SumitSaini-Resume.pdf"; 
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+
