@@ -392,29 +392,37 @@
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me</span></h2>
         
-        <form action="#" method="POST" class="animate__animated animate__fadeInUp">
-            <div class="input-box">
+       <form 
+           action="https://formsubmit.co/sumitsaini1968@gmail.com" 
+            method="POST" 
+             class="animate__animated animate__fadeInUp"
+              >
+              <input type="hidden" name="_captcha" value="false">
+               <input type="hidden" name="_template" value="table">
+               <input type="hidden" name="_subject" value="New Contact Form Message">
+
+           <div class="input-box">
                 <div class="input-field">
-                    <input type="text" placeholder="Full Name" required>
+                    <input type="text" name="name" placeholder="Full Name" required>
                     <span class="focus"></span>
                 </div>
                 <div class="input-field">
-                    <input type="email" placeholder="Email Address" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
                     <span class="focus"></span>
                 </div>
             </div>
             <div class="input-box">
                 <div class="input-field">
-                    <input type="tel" placeholder="Mobile Number">
+                    <input type="tel" name="phone" placeholder="Mobile Number">
                     <span class="focus"></span>
                 </div>
                 <div class="input-field">
-                    <input type="text" placeholder="Email Subject">
+                    <input type="text" name="subject" placeholder="Email Subject">
                     <span class="focus"></span>
                 </div>
             </div>
             <div class="textarea-field">
-                <textarea cols="30" rows="10" placeholder="Your Message" required></textarea>
+                <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
                 <span class="focus"></span>
             </div>
             <div class="contact-btns">
