@@ -101,19 +101,36 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-const form = document.querySelector('form');
+const form = document.getElementById('contactForm');
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault(); // stop immediate navigation
+form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // stay on page
 
-    showCustomAlert(
-        'Thank you for your message! I will get back to you soon.',
-        'success'
-    );
+    const formData = new FormData(form);
 
-    
-    form.reset();
+    try {
+        await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        showCustomAlert(
+            'Thank you for your message! I will get back to you soon.',
+            'success'
+        );
+
+        form.reset(); 
+    } catch (error) {
+        showCustomAlert(
+            'Something went wrong. Please try again later.',
+            'error'
+        );
+    }
 });
+
 
 
 /* Custom alert */
