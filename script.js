@@ -46,18 +46,11 @@ function animateSkillBars() {
         const percent = parseInt(skill.getAttribute('data-percent'));
 
         const rect = skill.getBoundingClientRect();
-        const isInViewport = (
+        const isInViewport =
             rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
 
-        if (isInViewport) {
-            skillProgress.style.width = percent + '%';
-        } else {
-            skillProgress.style.width = '0%';
-        }
+        skillProgress.style.width = isInViewport ? percent + '%' : '0%';
     });
 }
 
@@ -75,10 +68,8 @@ function updateActiveNavLink() {
         let id = sec.getAttribute('id');
 
         if (top >= offset && top < offset + height) {
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('.navbar a[href*=' + id + ']').classList.add('active');
-            });
+            navLinks.forEach(link => link.classList.remove('active'));
+            document.querySelector('.navbar a[href*=' + id + ']')?.classList.add('active');
         }
     });
 }
@@ -98,19 +89,7 @@ themeButtons.forEach(btn => {
         const color = btn.getAttribute('data-color');
         document.documentElement.style.setProperty('--main-color', color);
         document.documentElement.style.setProperty('--hover-color', color);
-
         localStorage.setItem('portfolioThemeColor', color);
-
-        document.body.className = '';
-        if (color === '#00abf0') {
-            document.body.classList.add('theme-blue');
-        } else if (color === '#ff004f') {
-            document.body.classList.add('theme-pink');
-        } else if (color === '#7d2ae8') {
-            document.body.classList.add('theme-purple');
-        } else if (color === '#2ae87d') {
-            document.body.classList.add('theme-green');
-        }
     });
 });
 
@@ -119,53 +98,39 @@ window.addEventListener('DOMContentLoaded', () => {
     if (savedColor) {
         document.documentElement.style.setProperty('--main-color', savedColor);
         document.documentElement.style.setProperty('--hover-color', savedColor);
-
-        themeButtons.forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.getAttribute('data-color') === savedColor) {
-                btn.classList.add('active');
-            }
-        });
-
-        document.body.className = '';
-        if (savedColor === '#00abf0') {
-            document.body.classList.add('theme-blue');
-        } else if (savedColor === '#ff004f') {
-            document.body.classList.add('theme-pink');
-        } else if (savedColor === '#7d2ae8') {
-            document.body.classList.add('theme-purple');
-        } else if (savedColor === '#2ae87d') {
-            document.body.classList.add('theme-green');
-        }
     }
 });
 
+/* ✅ FIXED FORM SUBMIT — DO NOT PREVENT DEFAULT */
 const form = document.querySelector('form');
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+form.addEventListener('submit', (e) => {
+    e.preventDefault(); // stop immediate navigation
+
+    showCustomAlert(
+        'Thank you for your message! I will get back to you soon.',
+        'success'
+    );
+
     
-    showCustomAlert('Thank you for your message! I will get back to you soon.', 'success');
-    form.reset();
+    setTimeout(() => {
+        form.submit(); 
+    }, 1200);
 });
 
+
+/* Custom alert */
 function showCustomAlert(message, type) {
     const alertBox = document.createElement('div');
     alertBox.classList.add('custom-alert', type);
     alertBox.textContent = message;
     document.body.appendChild(alertBox);
 
-    void alertBox.offsetWidth;
-
-    setTimeout(() => {
-        alertBox.classList.add('show');
-    }, 10);
+    setTimeout(() => alertBox.classList.add('show'), 10);
 
     setTimeout(() => {
         alertBox.classList.remove('show');
-        alertBox.addEventListener('transitionend', () => {
-            alertBox.remove();
-        }, { once: true });
+        alertBox.remove();
     }, 3000);
 }
 
@@ -183,20 +148,8 @@ function toggleScrollToTopButton() {
 
 window.addEventListener('load', toggleScrollToTopButton);
 
-
 document.getElementById("resumeBtn").addEventListener("click", function (e) {
-        e.preventDefault();
-
-        const pdfURL = "SumitSaini-Resume-GeneralProfessional-.pdf";
-
-       
-        window.open(pdfURL, "_blank");
-
-        const link = document.createElement("a");
-        link.href = pdfURL;
-        link.download = "SumitSaini-Resume.pdf"; 
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    });
-
+    e.preventDefault();
+    const pdfURL = "SumitSaini-Resume-GeneralProfessional-.pdf";
+    window.open(pdfURL, "_blank");
+});
