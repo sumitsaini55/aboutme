@@ -101,7 +101,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-/* ✅ FIXED FORM SUBMIT — DO NOT PREVENT DEFAULT */
 const form = document.querySelector('form');
 
 form.addEventListener('submit', (e) => {
@@ -113,9 +112,7 @@ form.addEventListener('submit', (e) => {
     );
 
     
-    setTimeout(() => {
-        form.submit(); 
-    }, 1200);
+    form.reset();
 });
 
 
