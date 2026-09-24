@@ -578,15 +578,15 @@ section {
 .skills-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 5rem;
+    gap: 3rem;
     justify-content: center;
 }
 
 .skill-category {
-    flex: 1 1 30rem;
-    max-width: 40rem;
+    flex: 1 1 22rem;
+    max-width: 24rem;
     background: var(--second-bg-color);
-    padding: 3rem 2rem 4rem;
+    padding: 2rem 1.5rem 3rem;
     border-radius: 2rem;
     text-align: center;
     border: .2rem solid var(--bg-color);
@@ -617,9 +617,9 @@ section {
 }
 
 .skill {
-    flex: 1 1 10rem;
-    min-width: 12rem;
-    padding: 1.5rem;
+    flex: 1 1 8rem;
+    min-width: 9rem;
+    padding: 1rem;
     background: var(--bg-color);
     border-radius: .8rem;
     display: flex;
@@ -643,17 +643,16 @@ section {
     margin-bottom: 1rem;
 }
 
-.skill i {
-    font-size: 4rem;
+    .skill i {
+    font-size: 3rem;
     color: var(--main-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
-.skill span {
-    font-size: 1.6rem;
+    .skill span {
+    font-size: 1.3rem;
     font-weight: 500;
 }
-
 .skill-bar {
     position: relative;
     width: 80%;
@@ -678,16 +677,18 @@ section {
 }
 
 .projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    max-width: 90rem;
+    margin: 0 auto;
 }
 
 .project-card {
     background: var(--bg-color);
-    padding: 2.5rem;
+    padding: 2.5rem 3rem;
     border-radius: 2rem;
-    text-align: center;
+    text-align: left;
     border: .2rem solid var(--bg-color);
     transition: .5s ease;
     display: flex;
@@ -745,7 +746,7 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 2.5rem;
 }
 
@@ -807,9 +808,20 @@ section {
     margin-bottom: 0;
 }
 
+.project-role {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.project-confidential {
+    cursor: default;
+    opacity: .85;
+}
+
 .project-links {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1.5rem;
     margin-top: auto;
     flex-wrap: wrap;
